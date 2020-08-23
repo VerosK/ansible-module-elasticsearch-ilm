@@ -1,0 +1,6 @@
+
+- name: Ensure ilm_policy
+  elasticsearch_ilm_policy:
+    name: cpk-policy
+    policy: "{{ lookup('template', 'templates/rollover.json.j2' ) | from_yaml | to_json }}"
+    state: present
